@@ -563,11 +563,20 @@ function checkFlagpole()
 {
     var d = abs(gameChar_worldx_x - flagpole.x_pos);
     
-    if(d < 5)
+    if(d < 5 && game_score == 4)
         {
             flagpole.isReached = true;
             winSound.play();
         }
+    else if(d < 10 && game_score < 4)
+        {   
+            fill(255,255,255)
+            rect(170,255,600, 40)
+            fill(0);
+            textSize(30);
+            text("please collect all coins to win the game!", 200, height/2);
+        }
+
 }
 
 function drawLifeTokens()
@@ -601,6 +610,7 @@ function checkGameOver()
     return gameOver;
 }
 
+let button;
 function drawGameOver()
 {
     fill(0);
@@ -610,10 +620,15 @@ function drawGameOver()
     if(lives > 0)
         {
             text("You Win!", 300, height/2);
+            window.alert("Press OK to restart!");
+            setup();
         }
+
     else
         {
             text("You Lose!", 300, height/2);
+            window.alert("Press OK to restart!");
+            setup();
         }
 }
 
