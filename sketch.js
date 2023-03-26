@@ -22,6 +22,7 @@ var lives;
 var enemies; 
 var platforms;
 
+//Sound Effects
 var jumpsound;
 var collectsound;
 var diesound;
